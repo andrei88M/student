@@ -1,17 +1,21 @@
 package com.example;
 
+import com.example.bd.BD;
+import com.example.dao2.EntityDAO;
 import com.example.entity.*;
 import com.example.util.JPA;
 
 public class Main {
     public static void main(String[] args) {
-        DAO dao = new DAO();
-        Student student = new Student();
-        student.setName("andrey");
-        student.setSurname("Mikhalchuk");
-        student.setAge(33);
-
+         EntityDAO<Course,Integer> dao = new EntityDAO<>();
+        Course course = new Course();
+        course.setId(BD.generateIdCourse());
+        dao.save(course);
+        dao.update(course);
+        dao.get(course.getId());
         JPA.close();
+
+        System.out.println(Course.class);
     }
 
     public static void saveEntity() {

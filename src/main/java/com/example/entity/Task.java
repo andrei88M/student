@@ -7,7 +7,6 @@ import java.util.Objects;
 @Table
 public class Task {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column

@@ -7,7 +7,6 @@ import java.util.Objects;
 @Table
 public class Result {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column

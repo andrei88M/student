@@ -8,7 +8,6 @@ import java.util.Set;
 @Table
 public class Student {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column
