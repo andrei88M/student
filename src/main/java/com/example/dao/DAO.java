@@ -1,6 +1,5 @@
-package com.example;
+package com.example.dao;
 
-import com.example.bd.BD;
 import com.example.entity.*;
 import com.example.util.JPA;
 

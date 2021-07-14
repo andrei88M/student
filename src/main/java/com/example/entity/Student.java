@@ -20,7 +20,7 @@ public class Student {
     @Column
     private int age;
 
-    @ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE},fetch = FetchType.EAGER)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "student_course",
             joinColumns = @JoinColumn(name = "stud_id"),
             inverseJoinColumns = @JoinColumn(name = "course_id"))
