@@ -2,7 +2,6 @@ package com.example;
 
 import com.example.dao.DAO;
 import com.example.entity.*;
-import com.example.servise.Relations;
 import com.example.util.JPA;
 
 import java.util.HashSet;
