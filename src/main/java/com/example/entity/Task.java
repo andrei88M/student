@@ -1,10 +1,17 @@
 package com.example.entity;
 
+import lombok.*;
+
 import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
 @Table
+@Builder
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,39 +22,6 @@ public class Task {
 
     @OneToOne(mappedBy = "task")
     private Course course;
-
-    public Task() {
-    }
-
-    public Task(int id, String tasks,Course course) {
-        this.id = id;
-        this.tasks = tasks;
-        this.course = course;
-    }
-
-    public Course getCourse() {
-        return course;
-    }
-
-    public void setCourse(Course course) {
-        this.course = course;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getTasks() {
-        return tasks;
-    }
-
-    public void setTasks(String tasks) {
-        this.tasks = tasks;
-    }
 
     @Override
     public boolean equals(Object o) {

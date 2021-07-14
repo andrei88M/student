@@ -12,7 +12,7 @@ public class Main {
         DAO dao = new DAO();
         Student student = new Student();
         student.setName("andrey");
-        student.setSurname("Mikhalchuk");
+        student.setSurname("sdsf");
         student.setAge(54);
 
         Course course = new Course();
@@ -37,6 +37,12 @@ public class Main {
         set.forEach(x-> System.out.println(x.getId()));
         System.out.println(set.size());
         System.out.println(student1);
+
+        Teacher teacher = Teacher.builder()
+                .surname("sasas")
+                .build();
+        dao.save(teacher);
+        System.out.println(dao.get(Teacher.class, teacher.getId()));
         JPA.close();
     }
 

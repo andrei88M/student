@@ -1,10 +1,17 @@
 package com.example.entity;
 
+import lombok.*;
+
 import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
 @Table
+@Setter
+@Getter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Result {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,48 +25,6 @@ public class Result {
 
     @OneToOne(mappedBy = "result")
     private Course course;
-
-    public Result() {
-    }
-
-    public Result(int id, int appraisal, String review, Course course) {
-        this.id = id;
-        this.appraisal = appraisal;
-        this.review = review;
-        this.course = course;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getAppraisal() {
-        return appraisal;
-    }
-
-    public void setAppraisal(int appraisal) {
-        this.appraisal = appraisal;
-    }
-
-    public String getReview() {
-        return review;
-    }
-
-    public void setReview(String review) {
-        this.review = review;
-    }
-
-    public Course getCourse() {
-        return course;
-    }
-
-    public void setCourse(Course course) {
-        this.course = course;
-    }
 
     @Override
     public boolean equals(Object o) {
