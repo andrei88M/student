@@ -1,4 +1,4 @@
-package com.example.dao3;
+package com.example.dao;
 
 import com.example.util.JPA;
 
@@ -24,20 +24,20 @@ public abstract class EntityManagerMethods<Entity> {
         entityManager.close();
     }
 
-    public void persistManager(Entity t) {
+    public void persistEntity(Entity t) {
         entityManager.persist(t);
     }
 
-    public Entity findManager(Class clazz, Serializable id) {
+    public Entity findEntity(Class clazz, Serializable id) {
         Entity entity = (Entity) entityManager.find(clazz, id);
         return entity;
     }
 
-    public void mergeManager(Entity entity){
+    public void mergeEntity(Entity entity){
         entityManager.merge(entity);
     }
 
-    public void removeManager(Object obj){
+    public void removeEntity(Object obj){
         entityManager.remove(obj);
     }
 
