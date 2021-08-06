@@ -3,6 +3,7 @@ package com.example.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Objects;
 import java.util.Set;
 
@@ -13,7 +14,7 @@ import java.util.Set;
 @Getter
 @Setter
 @Builder
-public class Teacher {
+public class Teacher implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;

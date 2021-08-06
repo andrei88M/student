@@ -1,6 +1,7 @@
 package com.example;
 
 import com.example.dao.DAO;
+import com.example.dao3.StudentDAO;
 import com.example.entity.*;
 import com.example.util.JPA;
 
@@ -9,40 +10,13 @@ import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {
-        DAO dao = new DAO();
-        Student student = new Student();
-        student.setName("andrey");
-        student.setSurname("sdsf");
-        student.setAge(54);
-
-        Course course = new Course();
-        course.setName("asa");
-        Course course2 = new Course();
-        course.setName("asawee");
-
-        Set<Student> studentSet = new HashSet<>();
-        studentSet.add(student);
-
-        Set<Course> courseSet = new HashSet<>();
-        courseSet.add(course);
-        courseSet.add(course2);
-
-        student.setCourseSet(courseSet);
-        course.setStudentSet(studentSet);
-        dao.save(student);
-
-        Student student1 = (Student) dao.get(Student.class, 1);
-        Set<Course> set = student1.getCourseSet();
-        System.out.println("-----------");
-        set.forEach(x-> System.out.println(x.getId()));
-        System.out.println(set.size());
-        System.out.println(student1);
-
-        Teacher teacher = Teacher.builder()
-                .surname("sasas")
-                .build();
-        dao.save(teacher);
-        System.out.println(dao.get(Teacher.class, teacher.getId()));
+        com.example.dao3.DAO<Student> dao = new StudentDAO<>();
+        dao.persist(new Student());
+        Student student = dao.find(Student.class, 1);
+        System.out.println(student);
+        student.setAge(44);
+        dao.merge(student);
+        dao.remove(student);
         JPA.close();
     }
 
